@@ -1,7 +1,7 @@
 ---
 layout: post
-title:      "Scraping from webpages that load content with AJAX or JavaScript"
-date:       2019-04-08 04:12:00 +0000
+title:      "Scraping from webpages that load content with JavaScript"
+date:       2019-04-08 00:12:01 -0400
 permalink:  scraping_from_webpages_that_load_content_with_ajax_or_javascript
 ---
 
@@ -10,7 +10,7 @@ I encountered an interesting problem while trying to scrape data for a CLI Gem t
 
 `[% getCarData(car.entryId).driver.abbvName %]`
 
-It turns out that the site was loading some of its html with AJAX or JavaScript, and OpenURI grabs the html from the page before it has fully been loaded. That's why you can find the driver data when you inspect the table, but not in the html doc that OpenURI grabs.
+It turns out that the site was loading some of its html with JavaScript, and OpenURI grabs the html from the page before it has fully been loaded. That's why you can find the driver data when you inspect the table, but not in the html doc that OpenURI grabs.
 
 The easiest solution that I found to deal with this is to use the gem Watir, rather than OpenURI. Watir actually opens a browser window and navigates to the desired page, allowing it to load.
 
